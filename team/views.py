@@ -19,7 +19,6 @@ def tournamentView(request):
 def groupView(request):
     all_groups = {}  # this list will contain all 8 groups
     group_names = ["A", "B", "C", "D", "E", "F", "G", "H"]
-    Team = namedtuple("Team", ["name", "state", "qualifier"])
 
     qualified_teams = Teams.objects.filter(last_year_qualifiers=True)
     non_qualified_teams = Teams.objects.filter(last_year_qualifiers=False)

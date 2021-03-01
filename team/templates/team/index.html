@@ -15,10 +15,11 @@
 </head>
 
 <body>
-    <!-- code for the new team / GROUPS -->
-    <!-- {{all_groups}} -->
-    <h2>Teams for this season</h2>
-    <p>Ustraa league assignment</p>
+    <div style="text-align: center;">
+        <h2>Teams for this season</h2>
+        <p>Ustraa league assignment</p>
+
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -30,21 +31,32 @@
             {% for group, team in all_groups.items %}
             <tr>
                 <td>{{group}}</td>
-                <!-- <td>{{team}}</td> -->
 
                 {% for t in team.values %}
                 <td>
                     {{t}}
                 </td>
                 {% endfor %}
-                <!-- create a table for teams -->
-                <!-- start code -->
-
-                <!-- end code -->
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <h3>Last year qualifiers</h3>
+    <ul>
+
+
+        {% for team in qu_teams%}
+        <li>{{team.name}}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Non-qualifier teams</h3>
+    <ul>
+        {% for team in nq_teams%}
+        <li>{{team.name}}</li>
+        {% endfor %}
+    </ul>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
