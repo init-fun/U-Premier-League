@@ -17,86 +17,34 @@
 <body>
     <!-- code for the new team / GROUPS -->
     <!-- {{all_groups}} -->
-    <h1>Tournaments</h1>
-    <table>
-        <tr>
-            <th>Group</th>
-            <th>Teams</th>
-        </tr>
-        {% for group,team in all_groups.items %}
-        <tr>
-            <td>{{ group }}</td>
+    <h2>Teams for this season</h2>
+    <p>Ustraa league assignment</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Teams</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group, team in all_groups.items %}
+            <tr>
+                <td>{{group}}</td>
+                <!-- <td>{{team}}</td> -->
 
-            <!-- <td>{{ team }}</td> -->
-            <table>
-                <tr>
-                    <th>Team Name</th>
-                    <th>State</th>
-                </tr>
-                {% for teamname,state in team.items %}
-                <tr>
-                    <td>{{teamname}}</td>
-                    <td>{{state}}</td>
-                </tr>
+                {% for t in team.values %}
+                <td>
+                    {{t}}
+                </td>
                 {% endfor %}
-        </tr>
-        {% endfor %}
+                <!-- create a table for teams -->
+                <!-- start code -->
+
+                <!-- end code -->
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-    </table>
-
-    <!-- <h1>Tournaments</h1>
-    <table>
-        <tr>
-            <th>Team</th>
-            <th>State</th>
-        </tr>
-        {% for state,name in group_4.items %}
-        <tr>
-            <td>{{ name }}</td>
-            <td>{{ state}}</td>
-        </tr>
-        {% endfor %}
-    </table> -->
-
-
-
-
-
-    <!-- end of code for GROUPS -->
-
-    <!-- <h1>Qualified teams</h1>
-    <table>
-        <tr>
-            <th>Team name</th>
-            <th>State</th>
-            <th>Qualifier</th>
-        </tr>
-        {% for q in q_teams %}
-
-        <tr>
-            <td>{{q.name}}</td>
-            <td>{{q.state}}</td>
-            <td>{{q.last_year_qualifiers}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <h1>Non-Qualified teams</h1>
-    <table>
-        <tr>
-            <th>Team name</th>
-            <th>State</th>
-            <th>Qualifier</th>
-        </tr>
-        {% for q in nq_teams %}
-
-        <tr>
-            <td>{{q.name}}</td>
-            <td>{{q.state}}</td>
-            <td>{{q.last_year_qualifiers}}</td>
-        </tr>
-        {% endfor %}
-    </table> -->
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
