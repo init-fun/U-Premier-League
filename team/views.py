@@ -26,23 +26,24 @@ def groupView(request):
     total_teams = len(qualified_teams) + len(non_qualified_teams)
 
     # forming a group of 4 team
-    group_4 = {}
-    random.shuffle(list(qualified_teams))
-    q_team = random.choice(qualified_teams)  # selected qualified team
-    group_4[q_team.state] = q_team.name
-    group_len = len(group_4)
-    run_count = 0
-    while group_len != 4 and run_count < total_teams:
-        # select a team and check its state and if its diff
-        # then append it to the group
-        random.shuffle(list(non_qualified_teams))
-        another_team = random.choice(non_qualified_teams)
-        if not another_team.state in group_4:
-            group_4[another_team.state] = another_team.name
-            group_len += 1
+    for i in range(8):
+        group_4 = {}
+        random.shuffle(list(qualified_teams))
+        q_team = random.choice(qualified_teams)  # selected qualified team
+        group_4[q_team.state] = q_team.name
+        group_len = len(group_4)
+        run_count = 0
+        while group_len != 4 and run_count < total_teams:
+            # select a team and check its state and if its diff
+            # then append it to the group
+            random.shuffle(list(non_qualified_teams))
+            another_team = random.choice(non_qualified_teams)
+            if not another_team.state in group_4:
+                group_4[another_team.state] = another_team.name
+                group_len += 1
 
-        run_count += 1
-
+            run_count += 1
+        all_groups[group_names[i]] = group_4
     # temp_team = Team(
     #     name=q_team.name, state=q_team.state, qualifier=q_team.last_year_qualifiers
     # )
@@ -51,5 +52,6 @@ def groupView(request):
         "qu_teams": qualified_teams,
         "nq_teams": non_qualified_teams,
         "group_4": group_4,
+        "all_groups": all_groups,
     }
     return render(request, "team/index.html", context)

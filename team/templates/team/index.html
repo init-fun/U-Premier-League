@@ -16,8 +16,35 @@
 
 <body>
     <!-- code for the new team / GROUPS -->
-
+    <!-- {{all_groups}} -->
     <h1>Tournaments</h1>
+    <table>
+        <tr>
+            <th>Group</th>
+            <th>Teams</th>
+        </tr>
+        {% for group,team in all_groups.items %}
+        <tr>
+            <td>{{ group }}</td>
+
+            <!-- <td>{{ team }}</td> -->
+            <table>
+                <tr>
+                    <th>Team Name</th>
+                    <th>State</th>
+                </tr>
+                {% for teamname,state in team.items %}
+                <tr>
+                    <td>{{teamname}}</td>
+                    <td>{{state}}</td>
+                </tr>
+                {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </table>
+
+    <!-- <h1>Tournaments</h1>
     <table>
         <tr>
             <th>Team</th>
@@ -29,7 +56,7 @@
             <td>{{ state}}</td>
         </tr>
         {% endfor %}
-    </table>
+    </table> -->
 
 
 
