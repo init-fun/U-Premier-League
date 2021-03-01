@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import tournamentView, groupView
+from .views import groupView
 
 app_name = "team"
 urlpatterns = [

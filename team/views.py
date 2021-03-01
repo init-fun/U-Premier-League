@@ -5,17 +5,6 @@ from collections import namedtuple
 from .models import Teams
 import random
 
-
-def tournamentView(request):
-    qualified_teams = Teams.objects.filter(last_year_qualifiers=True)
-    non_qualified_teams = Teams.objects.filter(last_year_qualifiers=False)
-    context = {
-        "q_teams": qualified_teams,
-        "nq_teams": non_qualified_teams,
-    }
-    return render(request, "team/index.html", context)
-
-
 def groupView(request):
     all_groups = {}  # this list will contain all 8 groups
     group_names = ["A", "B", "C", "D", "E", "F", "G", "H"]
