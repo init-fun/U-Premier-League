@@ -3,7 +3,9 @@ from collections import namedtuple
 
 # Create your views here.
 from .models import Teams
+from .models import Tournament
 import random
+
 
 def groupView(request):
     all_groups = {}  # this list will contain all 8 groups
@@ -34,9 +36,8 @@ def groupView(request):
 
             run_count += 1
         all_groups[group_names[i]] = group_4
-    # temp_team = Team(
-    #     name=q_team.name, state=q_team.state, qualifier=q_team.last_year_qualifiers
-    # )
+    this_year_teams = Tournament(data=all_groups)
+    this_year_teams.save()
 
     context = {
         "qu_teams": qualified_teams,
