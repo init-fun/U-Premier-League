@@ -32,9 +32,9 @@
             <tr>
                 <td>{{group}}</td>
 
-                {% for t in team.values %}
+                {% for state,name in team.items %}
                 <td>
-                    {{t}}
+                    {{name}}, {{state}}
                 </td>
                 {% endfor %}
             </tr>
@@ -42,21 +42,6 @@
         </tbody>
     </table>
 
-    <h3>Last year qualifiers</h3>
-    <ul>
-
-
-        {% for team in qu_teams%}
-        <li>{{team.name}}</li>
-        {% endfor %}
-    </ul>
-
-    <h3>Non-qualifier teams</h3>
-    <ul>
-        {% for team in nq_teams%}
-        <li>{{team.name}}</li>
-        {% endfor %}
-    </ul>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

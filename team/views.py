@@ -29,15 +29,17 @@ def groupView(request):
         group_4 = {}
         random.shuffle(list(qualified_teams))
         q_team = random.choice(qualified_teams)  # selected qualified team
+        qualified_teams = qualified_teams.exclude(id=q_team.id)
         group_4[q_team.state] = q_team.name
         group_len = len(group_4)
         run_count = 0
-        while group_len != 4 and run_count < total_teams:
+        while group_len != 4 and run_count <= total_teams:
             # select a team and check its state and if its diff
             # then append it to the group
             random.shuffle(list(non_qualified_teams))
             another_team = random.choice(non_qualified_teams)
             if not another_team.state in group_4:
+                non_qualified_teams = non_qualified_teams.exclude(id=another_team.id)
                 group_4[another_team.state] = another_team.name
                 group_len += 1
 
